@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pulmonary Disease Risk Factors</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 24px;
+      color: #111827;
+      line-height: 1.7;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 4px;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 36px;
+      margin-bottom: 8px;
+      color: #1e3a8a;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 20px;
+      margin-bottom: 4px;
+      color: #374151;
+    }
+
+    p {
+      margin-bottom: 12px;
+      color: #374151;
+    }
+
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    nav a {
+      margin-right: 24px;
+      text-decoration: none;
+      color: #2563EB;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .ref {
+      font-size: 0.9rem;
+      color: #6B7280;
+      margin-bottom: 10px;
+    }
+
+    .ref a {
+      color: #2563EB;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Introduction</a>
+    <a href="visualizations.html">Visualizations</a>
+  </nav>
+
+  <h1>What Predicts Pulmonary Disease?</h1>
+  <p>DS4200 — Information Presentation and Data Visualization</p>
+
+  <h2>Introduction</h2>
+
+  <h3>Topic Statement</h3>
+  <p>Our project examines how health indicators, lifestyle-related factors, and symptoms relate to pulmonary disease risk. Using a synthetic lung cancer risk dataset from Kaggle, we aim to visualize which factors stand out most clearly and how they help describe patterns of risk.</p>
+
+  <h3>Why It Matters</h3>
+  <p>This topic is important because lung cancer and related pulmonary conditions are high-impact health concerns, and understanding risk-related patterns can help make a complicated and sensitive topic more approachable. Visualization is especially useful here because it allows us to compare multiple possible indicators at once and show which ones appear most meaningful within the dataset.</p>
+
+  <h3>About the Dataset</h3>
+  <p>The dataset is well-suited for this project because it contains 5,000 records and 18 features related to lung cancer risk and prediction, providing enough observations and enough variable variety to build a meaningful narrative. Since the dataset includes demographic information and risk-related health indicators, it supports our goal of comparing which factors appear most associated with pulmonary disease outcomes.</p>
+
+  <h3>Central Question</h3>
+  <p>Our main question is which indicators in this dataset appear most strongly related to pulmonary disease, and how they compare when viewed together rather than one at a time. More specifically, we want to identify which factors are most important overall, whether certain symptoms or lifestyle indicators stand out relative to demographic factors, and what a higher-risk profile looks like across multiple variables.</p>
+
+  <h3>Visual Narrative</h3>
+  <p>The webpage is designed to move from broad comparisons to more detailed views of how risk-related variables behave together. We begin by highlighting which indicators appear most important overall, then use additional visualizations to examine relationships, compare outcomes, and show what higher-risk cases look like in an interactive way.</p>
+
+  <h3>Limitations</h3>
+  <p>Because this is a prediction-oriented dataset rather than direct clinical evidence, our findings should be understood as patterns within the data rather than medical proof. The goal of the project is to communicate these patterns clearly and thoughtfully, while recognizing the limits of what this type of dataset can support.</p>
+
+  <h2>Data Overview</h2>
+
+  <h3>Source and Scale</h3>
+  <p>We used the "Lung Cancer Prediction Dataset" from Kaggle, which contains 5,000 patient-level records and 18 features. For our project workflow, the dataset was cleaned and prepared for analysis, and the final version contains 5,000 usable observations with no missing values or duplicate rows.</p>
+
+  <h3>Types of Variables</h3>
+  <p>The dataset contains a mix of continuous and binary variables, which makes it well suited for visualization. Continuous variables include age, energy level, and oxygen saturation, while binary features include smoking, exposure to pollution, breathing issues, chest tightness, family history, and other symptom or lifestyle-related indicators.</p>
+
+  <h3>Outcome / Target</h3>
+  <p>The main outcome in this dataset is pulmonary disease, which is recorded as a yes/no variable and was converted into a binary numeric field for analysis. This allows us to compare which risk-related features appear most associated with disease outcomes and visualize those patterns across the dataset.</p>
+
+  <h3>Summary</h3>
+  <p>The dataset fits our project well because it includes enough observations to support meaningful comparisons and enough variables to study multiple dimensions of risk at once. It allows us to compare demographic, lifestyle, and symptom-related indicators within a single narrative. This is central to our goal of identifying what factors stand out most in relation to pulmonary disease risk.</p>
+
+  <h2>References</h2>
+
+  <div class="ref">
+    Markaki, M., Tsamardinos, I., Langhammer, A., Lagani, V., Hveem, K., &amp; Røe, O. D. (2018).
+    A Validated Clinical Risk Prediction Model for Lung Cancer in Smokers of All Ages and Exposure Types: A HUNT Study.
+    <em>EBioMedicine, 31</em>, 36–46.
+    <a href="https://doi.org/10.1016/j.ebiom.2018.03.027" target="_blank">https://doi.org/10.1016/j.ebiom.2018.03.027</a>
+  </div>
+
+  <div class="ref">
+    Cao, W., You, Z., Wang, Z., Liang, Z., Li, H., Chang, Z., Chen, Y., Dong, G., Cheng, Z. J., &amp; Sun, B. (2025).
+    Risk factors behind the global lung cancer burden: a pan-database exploration.
+    <em>Translational Lung Cancer Research, 14</em>(7), 2452–2469.
+    <a href="https://doi.org/10.21037/tlcr-2025-131" target="_blank">https://doi.org/10.21037/tlcr-2025-131</a>
+  </div>
+
+</body>
+</html>
