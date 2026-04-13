@@ -28,7 +28,7 @@
     }
 
     .tooltip {
-      position: absolute;
+      position: fixed;
       background: #1f2937;
       color: #f9fafb;
       border-radius: 6px;
@@ -128,7 +128,7 @@
       .style("fill", "#9ca3af")
       .text((lvl * 20) + "%");
   }
-
+width="800"
   // ── Draw axis lines and labels
   factors.forEach((factor, i) => {
     const angle = angleSlice * i - Math.PI / 2;
