@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Symptom Heatmap</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+      background: #fff;
+    }
+
+    .tooltip {
+      position: absolute;
+      background: #1f2937;
+      color: #f9fafb;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 13px;
+      pointer-events: none;
+      opacity: 0;
+      line-height: 1.6;
+    }
+
+    .cell {
+      cursor: pointer;
+    }
+
+    .cell:hover {
+      stroke: #111;
+      stroke-width: 2px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+  const data = [{"symptom": "Smoking", "age_group": "Under 35", "prevalence": 0.9189, "count": 204, "total": 222}, {"symptom": "Smoking", "age_group": "35-50", "prevalence": 0.9417, "count": 501, "total": 532}, {"symptom": "Smoking", "age_group": "50-65", "prevalence": 0.9319, "count": 547, "total": 587}, {"symptom": "Smoking", "age_group": "65+", "prevalence": 0.9195, "count": 640, "total": 696}, {"symptom": "Family History", "age_group": "Under 35", "prevalence": 0.3243, "count": 72, "total": 222}, {"symptom": "Family History", "age_group": "35-50", "prevalence": 0.3421, "count": 182, "total": 532}, {"symptom": "Family History", "age_group": "50-65", "prevalence": 0.3612, "count": 212, "total": 587}, {"symptom": "Family History", "age_group": "65+", "prevalence": 0.3578, "count": 249, "total": 696}, {"symptom": "Throat Discomfort", "age_group": "Under 35", "prevalence": 0.8604, "count": 191, "total": 222}, {"symptom": "Throat Discomfort", "age_group": "35-50", "prevalence": 0.8496, "count": 452, "total": 532}, {"symptom": "Throat Discomfort", "age_group": "50-65", "prevalence": 0.8416, "count": 494, "total": 587}, {"symptom": "Throat Discomfort", "age_group": "65+", "prevalence": 0.8693, "count": 605, "total": 696}, {"symptom": "Breathing Issue", "age_group": "Under 35", "prevalence": 0.9189, "count": 204, "total": 222}, {"symptom": "Breathing Issue", "age_group": "35-50", "prevalence": 0.9417, "count": 501, "total": 532}, {"symptom": "Breathing Issue", "age_group": "50-65", "prevalence": 0.9319, "count": 547, "total": 587}, {"symptom": "Breathing Issue", "age_group": "65+", "prevalence": 0.9253, "count": 644, "total": 696}, {"symptom": "Chest Tightness", "age_group": "Under 35", "prevalence": 0.6261, "count": 139, "total": 222}, {"symptom": "Chest Tightness", "age_group": "35-50", "prevalence": 0.6278, "count": 334, "total": 532}, {"symptom": "Chest Tightness", "age_group": "50-65", "prevalence": 0.6371, "count": 374, "total": 587}, {"symptom": "Chest Tightness", "age_group": "65+", "prevalence": 0.5862, "count": 408, "total": 696}, {"symptom": "Stress/Immune", "age_group": "Under 35", "prevalence": 0.3198, "count": 71, "total": 222}, {"symptom": "Stress/Immune", "age_group": "35-50", "prevalence": 0.2989, "count": 159, "total": 532}, {"symptom": "Stress/Immune", "age_group": "50-65", "prevalence": 0.3441, "count": 202, "total": 587}, {"symptom": "Stress/Immune", "age_group": "65+", "prevalence": 0.2529, "count": 176, "total": 696}, {"symptom": "Pollution Exposure", "age_group": "Under 35", "prevalence": 0.6081, "count": 135, "total": 222}, {"symptom": "Pollution Exposure", "age_group": "35-50", "prevalence": 0.5658, "count": 301, "total": 532}, {"symptom": "Pollution Exposure", "age_group": "50-65", "prevalence": 0.5758, "count": 338, "total": 587}, {"symptom": "Pollution Exposure", "age_group": "65+", "prevalence": 0.5661, "count": 394, "total": 696}, {"symptom": "Immune Weakness", "age_group": "Under 35", "prevalence": 0.455, "count": 101, "total": 222}, {"symptom": "Immune Weakness", "age_group": "35-50", "prevalence": 0.4624, "count": 246, "total": 532}, {"symptom": "Immune Weakness", "age_group": "50-65", "prevalence": 0.5196, "count": 305, "total": 587}, {"symptom": "Immune Weakness", "age_group": "65+", "prevalence": 0.4339, "count": 302, "total": 696}, {"symptom": "Alcohol Use", "age_group": "Under 35", "prevalence": 0.3468, "count": 77, "total": 222}, {"symptom": "Alcohol Use", "age_group": "35-50", "prevalence": 0.3722, "count": 198, "total": 532}, {"symptom": "Alcohol Use", "age_group": "50-65", "prevalence": 0.3646, "count": 214, "total": 587}, {"symptom": "Alcohol Use", "age_group": "65+", "prevalence": 0.3348, "count": 233, "total": 696}];
+
+  // dimensions
+  const margin = { top: 60, right: 40, bottom: 60, left: 160 };
+  const width  = 520 - margin.left - margin.right;
+  const height = 400 - margin.top  - margin.bottom;
+
+  const svg = d3.select("body")
+    .append("svg")
+    .attr("width",  width  + margin.left + margin.right)
+    .attr("height", height + margin.top  + margin.bottom)
+    .append("g")
+    .attr("transform", `translate(${margin.left},${margin.top})`);
+
+  const symptoms  = [...new Set(data.map(d => d.symptom))];
+  const ageGroups = ["Under 35", "35-50", "50-65", "65+"];
+
+  const x = d3.scaleBand()
+    .domain(ageGroups)
+    .range([0, width])
+    .padding(0.05);
+
+  const y = d3.scaleBand()
+    .domain(symptoms)
+    .range([0, height])
+    .padding(0.05);
+
+  // Color scale that goes from light blue to dark blue
+  const colorScale = d3.scaleSequential()
+    .domain([0, 1])
+    .interpolator(d3.interpolateBlues);
+
+  // create axes
+  svg.append("g")
+    .attr("transform", `translate(0, ${height})`)
+    .call(d3.axisBottom(x).tickSize(0))
+    .select(".domain").remove();
+
+  svg.append("g")
+    .call(d3.axisLeft(y).tickSize(0))
+    .select(".domain").remove();
+
+  // create title
+  svg.append("text")
+    .attr("x", width / 2)
+    .attr("y", -30)
+    .attr("text-anchor", "middle")
+    .style("font-size", "15px")
+    .style("font-weight", "bold")
+    .text("Symptom Prevalence Among Disease-Positive Patients");
+
+  const tooltip = d3.select("#tooltip");
+
+  // creates the cells
+  svg.selectAll(".cell")
+    .data(data)
+    .enter()
+    .append("rect")
+    .attr("class", "cell")
+    .attr("x",      d => x(d.age_group))
+    .attr("y",      d => y(d.symptom))
+    .attr("width",  x.bandwidth())
+    .attr("height", y.bandwidth())
+    .attr("rx", 4)
+    .attr("fill", d => colorScale(d.prevalence))
+    // tooltip for mouse over
+    .on("mouseover", function(event, d) {
+      tooltip
+        .style("opacity", 1)
+        .html(`<strong>${d.symptom}</strong><br>
+               Age group: ${d.age_group}<br>
+               Prevalence: ${(d.prevalence * 100).toFixed(1)}%<br>
+               Patients: ${d.count} / ${d.total}`);
+    })
+    .on("mousemove", function(event) {
+      tooltip
+        .style("left", (event.pageX + 14) + "px")
+        .style("top",  (event.pageY - 10) + "px");
+    })
+    .on("mouseout", function() {
+      tooltip.style("opacity", 0);
+    });
+
+  // percentages
+  svg.selectAll(".cell-label")
+    .data(data)
+    .enter()
+    .append("text")
+    .attr("class", "cell-label")
+    .attr("x", d => x(d.age_group) + x.bandwidth() / 2)
+    .attr("y", d => y(d.symptom)   + y.bandwidth() / 2)
+    .attr("text-anchor", "middle")
+    .attr("dominant-baseline", "central")
+    .style("font-size", "11px")
+    .style("font-weight", "600")
+    .style("pointer-events", "none")
+    .style("fill", d => d.prevalence > 0.6 ? "#fff" : "#1e3a8a")
+    .text(d => (d.prevalence * 100).toFixed(0) + "%");
+
+  // legend
+  const legendWidth = 160;
+  const legendHeight = 10;
+  const legendX = width - legendWidth;
+  const legendY = height + 40;
+
+  const defs = svg.append("defs");
+  const grad = defs.append("linearGradient").attr("id", "legend-grad");
+  grad.selectAll("stop")
+    .data(d3.range(0, 1.01, 0.1))
+    .enter()
+    .append("stop")
+    .attr("offset", d => d)
+    .attr("stop-color", d => colorScale(d));
+
+  svg.append("rect")
+    .attr("x", legendX)
+    .attr("y", legendY)
+    .attr("width", legendWidth)
+    .attr("height", legendHeight)
+    .attr("rx", 3)
+    .attr("fill", "url(#legend-grad)");
+
+  svg.append("text")
+    .attr("x", legendX)
+    .attr("y", legendY - 4)
+    .style("font-size", "10px")
+    .style("fill", "#6B7280")
+    .text("0%");
+
+  svg.append("text")
+    .attr("x", legendX + legendWidth)
+    .attr("y", legendY - 4)
+    .attr("text-anchor", "end")
+    .style("font-size", "10px")
+    .style("fill", "#6B7280")
+    .text("100%");
+
+</script>
+</body>
+</html>

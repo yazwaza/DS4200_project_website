@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.1.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axis": {"labelFontSize": 12, "titleFontSize": 13}, "title": {"anchor": "start", "fontSize": 18, "subtitleFontSize": 12}}, "layer": [{"data": {"name": "data-d285a7403ed98ae579761d64a864032b"}, "mark": {"type": "rule", "color": "black", "strokeDash": [4, 4]}, "encoding": {"x": {"field": "x", "type": "quantitative"}}}, {"data": {"name": "data-86be8bbbce9cce5b42a7a923f7ce178a"}, "mark": {"type": "bar", "cornerRadiusBottomRight": 4, "cornerRadiusTopRight": 4}, "encoding": {"color": {"condition": {"param": "param_0498abe726793266", "field": "feature_type", "legend": {"title": "Indicator Type"}, "scale": {"domain": ["Lifestyle / Symptom", "Demographic"], "range": ["#4C78A8", "#F58518"]}, "type": "nominal"}, "value": "#D3D3D3"}, "tooltip": [{"field": "feature_label", "title": "Indicator", "type": "nominal"}, {"field": "feature_type", "title": "Type", "type": "nominal"}, {"field": "correlation", "format": ".3f", "title": "Correlation", "type": "quantitative"}], "x": {"field": "correlation", "scale": {"domain": [-0.05, 0.5]}, "title": "Correlation with Pulmonary Disease", "type": "quantitative"}, "y": {"field": "feature_label", "sort": "-x", "title": "Indicator", "type": "nominal"}}, "name": "view_ea6dce895c7fe372_1"}, {"data": {"name": "data-86be8bbbce9cce5b42a7a923f7ce178a"}, "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 5, "fontSize": 12}, "encoding": {"text": {"field": "correlation", "format": ".2f", "type": "quantitative"}, "x": {"field": "correlation", "type": "quantitative"}, "y": {"field": "feature_label", "sort": "-x", "type": "nominal"}}}], "height": 420, "params": [{"name": "param_0498abe726793266", "select": {"type": "point", "fields": ["feature_label"], "on": "mouseover"}, "views": ["view_ea6dce895c7fe372_1"]}], "title": {"text": "Indicators Most Associated with Pulmonary Disease", "subtitle": ["Smoking and symptom-related factors show stronger relationships than age or gender"]}, "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json", "datasets": {"data-d285a7403ed98ae579761d64a864032b": [{"x": 0}], "data-86be8bbbce9cce5b42a7a923f7ce178a": [{"feature": "smoking", "correlation": 0.46146732319609673, "feature_label": "Smoking", "feature_type": "Lifestyle / Symptom"}, {"feature": "smoking_family_history", "correlation": 0.30247832554692716, "feature_label": "Smoking Family History", "feature_type": "Lifestyle / Symptom"}, {"feature": "throat_discomfort", "correlation": 0.28354514730221, "feature_label": "Throat Discomfort", "feature_type": "Lifestyle / Symptom"}, {"feature": "breathing_issue", "correlation": 0.2704635357151942, "feature_label": "Breathing Issues", "feature_type": "Lifestyle / Symptom"}, {"feature": "stress_immune", "correlation": 0.18105295201963142, "feature_label": "Stress / Immune", "feature_type": "Lifestyle / Symptom"}, {"feature": "immune_weakness", "correlation": 0.1247355962209796, "feature_label": "Immune Weakness", "feature_type": "Lifestyle / Symptom"}, {"feature": "family_history", "correlation": 0.1172547066556424, "feature_label": "Family History", "feature_type": "Lifestyle / Symptom"}, {"feature": "exposure_to_pollution", "correlation": 0.09522157465611913, "feature_label": "Exposure to Pollution", "feature_type": "Lifestyle / Symptom"}, {"feature": "gender", "correlation": -0.004025163296802559, "feature_label": "Gender", "feature_type": "Demographic"}, {"feature": "age", "correlation": -0.006488992199815772, "feature_label": "Age", "feature_type": "Demographic"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
