@@ -108,7 +108,7 @@
   <h2>Visualization 1 — Indicators Most Associated with Pulmonary Disease</h2>
 
   <div class="viz-container">
-    <iframe src="top_indicators_chart" width = "1000" height="600" scrolling="no"></iframe>
+    <iframe src="top_indicators_chart.html" width="1000" height="600" scrolling="no"></iframe>
   </div>
 
   <div class="interaction-note">
@@ -116,10 +116,10 @@
   </div>
 
   <h3>Takeaway</h3>
-  <p>This chart shows which indicators are most strongly associated with pulmonary disease in the dataset. Smoking stands out as the strongest relationship, followed by smoking family history and symptom-related variables such as throat discomfort and breathing issues. In contrast, age and gender show very weak relationships in this dataset, suggesting that lifestyle and symptom indicators are more informative than demographic variables in our current analysis.</p>
+  <p>This chart shows which indicators are most strongly associated with pulmonary disease in the dataset. Smoking stands out as the strongest relationship, followed by smoking family history and symptom-related variables such as throat discomfort and breathing issues. In contrast, age and gender show much weaker relationships, suggesting that lifestyle and symptom indicators are more informative than demographic variables in this analysis.</p>
 
   <!-- ── VIZ 2 ── -->
-  <h2>Visualization 2 — Disease Outcomes by Top Risk Factors</h2>
+  <h2>Visualization 2 — Disease Outcomes by Selected Risk Factors</h2>
 
   <div class="viz-container">
     <iframe src="viz_stacked_bar.html" height="500" scrolling="no"></iframe>
@@ -130,7 +130,7 @@
   </div>
 
   <h3>Takeaway</h3>
-  <p>This stacked bar chart compares the proportion of patients with and without pulmonary disease across smoking and family history. In all cases the patients with the risk factor show a noticeably higher disease rate than those who do not. Smoking shows the most dramatic difference, with over half of smokers having pulmonary disease compared to under 10% of non-smokers. This confirms that lifestyle and symptom-related factors are meaningful predictors of disease outcome in this dataset.</p>
+  <p>This stacked bar chart compares the proportion of patients with and without pulmonary disease across the selected risk factors shown in the chart. In both cases, patients with the risk factor show a noticeably higher disease rate than those who do not. Smoking shows the strongest difference, with a much higher disease rate among smokers than non-smokers, while disease family history also shows a meaningful gap between groups. This reinforces that these risk-related indicators are more informative than demographic variables in this dataset.</p>
 
   <!-- ── VIZ 3 ── -->
   <h2>Visualization 3 — Symptom Prevalence Among Disease-Positive Patients</h2>
@@ -144,7 +144,7 @@
   </div>
 
   <h3>Takeaway</h3>
-  <p>This heatmap shows the prevalence of each risk factor among disease-positive patients only, broken down by age group. Smoking and breathing issues are consistently the most prevalent symptoms across all age groups, appearing in over 90% of disease-positive patients regardless of age. Family history and stress-related factors show lower prevalence overall. The chart reveals that symptom profiles are fairly consistent across age groups, reinforcing the finding that lifestyle factors rather than age are the stronger predictors in this dataset.</p>
+  <p>This heatmap shows the prevalence of different indicators among disease-positive patients across age groups. Smoking and breathing issues remain the most prevalent across all age groups, while other indicators such as family history and stress-related variables appear at lower rates overall. The chart suggests that many of the strongest indicator patterns remain fairly consistent across age groups, reinforcing that age alone is not the main differentiator in this dataset.</p>
 
   <!-- ── VIZ 4 ── -->
   <h2>Visualization 4 — Age vs Oxygen Saturation by Disease Status</h2>
@@ -158,10 +158,10 @@
   </div>
 
   <h3>Takeaway</h3>
-  <p>This scatter plot shows the relationship between age and oxygen saturation for individual patients, colored by disease status. Disease-positive patients tend to cluster at slightly lower oxygen saturation levels compared to disease-negative patients, regardless of age. This suggests that oxygen saturation is a meaningful physiological signal associated with pulmonary disease in this dataset. The dropdown filter allows the viewer to isolate smokers or non-smokers to see whether the pattern holds within each group.</p>
+  <p>This scatter plot shows the relationship between age and oxygen saturation for individual patients, colored by disease status. The two groups overlap substantially, but disease-positive patients tend to appear at somewhat lower oxygen saturation levels overall. This suggests that oxygen saturation may be a more useful physiological signal than age alone for distinguishing disease status in this dataset. The dropdown filter also helps show whether this overall pattern remains similar within smoking groups.</p>
 
   <!-- ── VIZ 5 ── -->
-  <h2>Visualization 5 — Risk Factor Profile: Disease vs. No Disease</h2>
+  <h2>Visualization 5 — Patient Profile Comparison: Disease vs. No Disease</h2>
 
   <div class="viz-container">
     <iframe src="viz_radar.html" height="560" scrolling="no"></iframe>
@@ -172,31 +172,20 @@
   </div>
 
   <h3>Takeaway</h3>
-  <p>This radar chart provides a broad overview of how the overall risk factor profile differs between disease-positive and disease-negative patients across all nine factors simultaneously. The red polygon representing disease-positive patients is consistently larger than the blue polygon, particularly for smoking, breathing issues, and throat discomfort. Family history and stress-related factors show smaller differences between the two groups. This side-by-side shape comparison makes it easy to see at a glance which factors separate the two groups the most and which ones are more similar.</p>
+  <p>This radar chart provides a broader comparison of symptom and indicator prevalence between disease-positive and disease-negative patients. The disease-positive group is consistently higher across several dimensions, especially smoking, breathing issues, and throat discomfort. Other indicators such as disease family history and stress-related factors show smaller differences, but still contribute to the overall profile. This chart makes it easier to compare the general shape of the two groups rather than focusing on any single variable alone.</p>
 
-  <!-- ── CONCLUSION ── -->
+    <!-- ── CONCLUSION ── -->
   <div class="findings">
     <h2>Conclusion</h2>
 
-    <p>
-      Concrete Takeaways:
+    <p>Overall, our analysis suggests that smoking is the strongest indicator associated with pulmonary disease in this dataset, with smoking family history and several symptom-related variables also standing out. Across the visualizations, lifestyle and symptom indicators appear to be more informative than demographic variables such as age and gender, which show much weaker relationships throughout the analysis.</p>
 
-      Smoking is the dominant predictor of pulmonary disease in this dataset, far exceeding the influence of age or gender.
+    <p>The heatmap supports this by showing that many symptom and indicator patterns remain fairly consistent across age groups, which suggests that age alone is not the strongest differentiator. The scatter plot adds a physiological perspective by showing that disease-positive patients tend to appear at somewhat lower oxygen saturation levels, even though the two groups still overlap considerably.</p>
 
-      Symptoms like breathing issues and throat discomfort are consistent "red flags" across all age groups.
+    <p>The radar chart brings these findings together by comparing broader patient profiles side by side. The overall shape difference between disease-positive and disease-negative patients is driven most clearly by smoking, breathing issues, and throat discomfort, while other indicators such as disease family history and stress-related factors show smaller but still visible differences.</p>
 
-      Lower oxygen saturation levels provide a clearer clinical threshold for disease presence than broad patient demographic data.
-
-      
-      Limitation & Future Work:
-      
-      Because this dataset is synthetic, these patterns should be validated against real clinical data and environmental factors, such as long-term pollution exposure, in future research.Our analysis suggests that smoking is the strongest indicator associated with pulmonary disease in this dataset, with smoking family history and several symptom-related variables also standing out. Lifestyle and symptom indicators appear to be more informative than demographic variables such as age and gender, which show much weaker relationships in the current analysis.</p>
-
-    <p>The heatmap further confirms this by showing that symptom profiles among disease-positive patients remain fairly consistent across age groups, reinforcing that age alone is not a strong differentiator. The scatter plot adds a physiological dimension, showing that disease-positive patients tend toward slightly lower oxygen saturation levels regardless of age, suggesting that measurable health signals may be more useful than demographic factors for identifying at-risk patients.</p>
-
-    <p>The radar chart ties these findings together by showing the full risk factor profile side by side — the shape difference between disease-positive and disease-negative patients is driven primarily by smoking, breathing issues, and throat discomfort, while factors like family history and stress show smaller but still visible gaps between the two groups.</p>
-
-    <p>Taken together, these visualizations show that pulmonary disease risk in this dataset is best understood through a combination of lifestyle behaviors and physical symptoms rather than demographics. Future work could explore building a predictive model using these factors or validating these patterns against real clinical data. Because this dataset is synthetic, all findings should be interpreted as patterns within the data rather than medical proof.</p>
+    <h3>Limitations and Future Work</h3>
+    <p>This project uses a synthetic dataset, so the findings should be interpreted as patterns within the data rather than medical proof. In future work, these visualizations could be extended by testing the same patterns on real clinical data, adding more environmental or medical history variables, or building a predictive model to evaluate how well these indicators work together in identifying pulmonary disease risk.</p>
   </div>
 
 </body>
