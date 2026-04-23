@@ -69,13 +69,15 @@
 </head>
 <body>
 
-<h2>Risk Factor Profile: Disease vs. No Disease</h2>
+<h2>Patient Profile Comparison: Disease vs. No Disease</h2>
+
+<div class="subtitle">This chart compares symptom and indicator prevalence between disease-positive and disease-negative groups.</div>
 
 <div class="tooltip" id="tooltip"></div>
 
 <script>
   const factors = [
-    'Smoking', 'Family History', 'Throat Discomfort',
+    'Smoking', 'Disease Family History', 'Throat Discomfort',
     'Breathing Issue', 'Chest Tightness', 'Stress/Immune',
     'Pollution Exposure', 'Immune Weakness', 'Alcohol Use'
   ];
@@ -86,8 +88,8 @@
   const n = factors.length;
 
   // ── Dimensions
-  const width  = 500;
-  const height = 500;
+  const width  = 560;
+const height = 520;
   const cx = width / 2;
   const cy = height / 2;
   const radius = 180;
@@ -143,9 +145,9 @@
       .attr("stroke-width", 1);
 
     // Labels
-    const labelR = radius + 28;
-    const lx = cx + labelR * Math.cos(angle);
-    const ly = cy + labelR * Math.sin(angle);
+    const labelR = radius + 34;
+const lx = cx + labelR * Math.cos(angle);
+const ly = cy + labelR * Math.sin(angle);
 
     svg.append("text")
       .attr("x", lx)

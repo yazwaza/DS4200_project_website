@@ -40,10 +40,10 @@
 <div class="tooltip" id="tooltip"></div>
 
 <script>
-  const data = [{"symptom": "Smoking", "age_group": "Under 35", "prevalence": 0.9189, "count": 204, "total": 222}, {"symptom": "Smoking", "age_group": "35-50", "prevalence": 0.9417, "count": 501, "total": 532}, {"symptom": "Smoking", "age_group": "50-65", "prevalence": 0.9319, "count": 547, "total": 587}, {"symptom": "Smoking", "age_group": "65+", "prevalence": 0.9195, "count": 640, "total": 696}, {"symptom": "Family History", "age_group": "Under 35", "prevalence": 0.3243, "count": 72, "total": 222}, {"symptom": "Family History", "age_group": "35-50", "prevalence": 0.3421, "count": 182, "total": 532}, {"symptom": "Family History", "age_group": "50-65", "prevalence": 0.3612, "count": 212, "total": 587}, {"symptom": "Family History", "age_group": "65+", "prevalence": 0.3578, "count": 249, "total": 696}, {"symptom": "Throat Discomfort", "age_group": "Under 35", "prevalence": 0.8604, "count": 191, "total": 222}, {"symptom": "Throat Discomfort", "age_group": "35-50", "prevalence": 0.8496, "count": 452, "total": 532}, {"symptom": "Throat Discomfort", "age_group": "50-65", "prevalence": 0.8416, "count": 494, "total": 587}, {"symptom": "Throat Discomfort", "age_group": "65+", "prevalence": 0.8693, "count": 605, "total": 696}, {"symptom": "Breathing Issue", "age_group": "Under 35", "prevalence": 0.9189, "count": 204, "total": 222}, {"symptom": "Breathing Issue", "age_group": "35-50", "prevalence": 0.9417, "count": 501, "total": 532}, {"symptom": "Breathing Issue", "age_group": "50-65", "prevalence": 0.9319, "count": 547, "total": 587}, {"symptom": "Breathing Issue", "age_group": "65+", "prevalence": 0.9253, "count": 644, "total": 696}, {"symptom": "Chest Tightness", "age_group": "Under 35", "prevalence": 0.6261, "count": 139, "total": 222}, {"symptom": "Chest Tightness", "age_group": "35-50", "prevalence": 0.6278, "count": 334, "total": 532}, {"symptom": "Chest Tightness", "age_group": "50-65", "prevalence": 0.6371, "count": 374, "total": 587}, {"symptom": "Chest Tightness", "age_group": "65+", "prevalence": 0.5862, "count": 408, "total": 696}, {"symptom": "Stress/Immune", "age_group": "Under 35", "prevalence": 0.3198, "count": 71, "total": 222}, {"symptom": "Stress/Immune", "age_group": "35-50", "prevalence": 0.2989, "count": 159, "total": 532}, {"symptom": "Stress/Immune", "age_group": "50-65", "prevalence": 0.3441, "count": 202, "total": 587}, {"symptom": "Stress/Immune", "age_group": "65+", "prevalence": 0.2529, "count": 176, "total": 696}, {"symptom": "Pollution Exposure", "age_group": "Under 35", "prevalence": 0.6081, "count": 135, "total": 222}, {"symptom": "Pollution Exposure", "age_group": "35-50", "prevalence": 0.5658, "count": 301, "total": 532}, {"symptom": "Pollution Exposure", "age_group": "50-65", "prevalence": 0.5758, "count": 338, "total": 587}, {"symptom": "Pollution Exposure", "age_group": "65+", "prevalence": 0.5661, "count": 394, "total": 696}, {"symptom": "Immune Weakness", "age_group": "Under 35", "prevalence": 0.455, "count": 101, "total": 222}, {"symptom": "Immune Weakness", "age_group": "35-50", "prevalence": 0.4624, "count": 246, "total": 532}, {"symptom": "Immune Weakness", "age_group": "50-65", "prevalence": 0.5196, "count": 305, "total": 587}, {"symptom": "Immune Weakness", "age_group": "65+", "prevalence": 0.4339, "count": 302, "total": 696}, {"symptom": "Alcohol Use", "age_group": "Under 35", "prevalence": 0.3468, "count": 77, "total": 222}, {"symptom": "Alcohol Use", "age_group": "35-50", "prevalence": 0.3722, "count": 198, "total": 532}, {"symptom": "Alcohol Use", "age_group": "50-65", "prevalence": 0.3646, "count": 214, "total": 587}, {"symptom": "Alcohol Use", "age_group": "65+", "prevalence": 0.3348, "count": 233, "total": 696}];
+  const data = [{"symptom": "Smoking", "age_group": "Under 35", "prevalence": 0.9189, "count": 204, "total": 222}, {"symptom": "Smoking", "age_group": "35-50", "prevalence": 0.9417, "count": 501, "total": 532}, {"symptom": "Smoking", "age_group": "50-65", "prevalence": 0.9319, "count": 547, "total": 587}, {"symptom": "Smoking", "age_group": "65+", "prevalence": 0.9195, "count": 640, "total": 696}, {"symptom": "Disease Family History", "age_group": "Under 35", "prevalence": 0.3243, "count": 72, "total": 222}, {"symptom": "Disease Family History", "age_group": "35-50", "prevalence": 0.3421, "count": 182, "total": 532}, {"symptom": "Disease Family History", "age_group": "50-65", "prevalence": 0.3612, "count": 212, "total": 587}, {"symptom": "Disease Family History", "age_group": "65+", "prevalence": 0.3578, "count": 249, "total": 696}, {"symptom": "Throat Discomfort", "age_group": "Under 35", "prevalence": 0.8604, "count": 191, "total": 222}, {"symptom": "Throat Discomfort", "age_group": "35-50", "prevalence": 0.8496, "count": 452, "total": 532}, {"symptom": "Throat Discomfort", "age_group": "50-65", "prevalence": 0.8416, "count": 494, "total": 587}, {"symptom": "Throat Discomfort", "age_group": "65+", "prevalence": 0.8693, "count": 605, "total": 696}, {"symptom": "Breathing Issue", "age_group": "Under 35", "prevalence": 0.9189, "count": 204, "total": 222}, {"symptom": "Breathing Issue", "age_group": "35-50", "prevalence": 0.9417, "count": 501, "total": 532}, {"symptom": "Breathing Issue", "age_group": "50-65", "prevalence": 0.9319, "count": 547, "total": 587}, {"symptom": "Breathing Issue", "age_group": "65+", "prevalence": 0.9253, "count": 644, "total": 696}, {"symptom": "Chest Tightness", "age_group": "Under 35", "prevalence": 0.6261, "count": 139, "total": 222}, {"symptom": "Chest Tightness", "age_group": "35-50", "prevalence": 0.6278, "count": 334, "total": 532}, {"symptom": "Chest Tightness", "age_group": "50-65", "prevalence": 0.6371, "count": 374, "total": 587}, {"symptom": "Chest Tightness", "age_group": "65+", "prevalence": 0.5862, "count": 408, "total": 696}, {"symptom": "Stress/Immune", "age_group": "Under 35", "prevalence": 0.3198, "count": 71, "total": 222}, {"symptom": "Stress/Immune", "age_group": "35-50", "prevalence": 0.2989, "count": 159, "total": 532}, {"symptom": "Stress/Immune", "age_group": "50-65", "prevalence": 0.3441, "count": 202, "total": 587}, {"symptom": "Stress/Immune", "age_group": "65+", "prevalence": 0.2529, "count": 176, "total": 696}, {"symptom": "Pollution Exposure", "age_group": "Under 35", "prevalence": 0.6081, "count": 135, "total": 222}, {"symptom": "Pollution Exposure", "age_group": "35-50", "prevalence": 0.5658, "count": 301, "total": 532}, {"symptom": "Pollution Exposure", "age_group": "50-65", "prevalence": 0.5758, "count": 338, "total": 587}, {"symptom": "Pollution Exposure", "age_group": "65+", "prevalence": 0.5661, "count": 394, "total": 696}, {"symptom": "Immune Weakness", "age_group": "Under 35", "prevalence": 0.455, "count": 101, "total": 222}, {"symptom": "Immune Weakness", "age_group": "35-50", "prevalence": 0.4624, "count": 246, "total": 532}, {"symptom": "Immune Weakness", "age_group": "50-65", "prevalence": 0.5196, "count": 305, "total": 587}, {"symptom": "Immune Weakness", "age_group": "65+", "prevalence": 0.4339, "count": 302, "total": 696}, {"symptom": "Alcohol Use", "age_group": "Under 35", "prevalence": 0.3468, "count": 77, "total": 222}, {"symptom": "Alcohol Use", "age_group": "35-50", "prevalence": 0.3722, "count": 198, "total": 532}, {"symptom": "Alcohol Use", "age_group": "50-65", "prevalence": 0.3646, "count": 214, "total": 587}, {"symptom": "Alcohol Use", "age_group": "65+", "prevalence": 0.3348, "count": 233, "total": 696}];
 
   // dimensions
-  const margin = { top: 60, right: 40, bottom: 60, left: 160 };
+ const margin = { top: 72, right: 40, bottom: 60, left: 160 };
   const width  = 520 - margin.left - margin.right;
   const height = 400 - margin.top  - margin.bottom;
 
@@ -82,14 +82,23 @@
     .call(d3.axisLeft(y).tickSize(0))
     .select(".domain").remove();
 
-  // create title
-  svg.append("text")
-    .attr("x", width / 2)
-    .attr("y", -30)
-    .attr("text-anchor", "middle")
-    .style("font-size", "15px")
-    .style("font-weight", "bold")
-    .text("Symptom Prevalence Among Disease-Positive Patients");
+// create title
+svg.append("text")
+  .attr("x", width / 2)
+  .attr("y", -30)
+  .attr("text-anchor", "middle")
+  .style("font-size", "15px")
+  .style("font-weight", "bold")
+  .text("Indicator Prevalence Among Disease-Positive Patients");
+
+// subtitle
+svg.append("text")
+  .attr("x", width / 2)
+  .attr("y", -12)
+  .attr("text-anchor", "middle")
+  .style("font-size", "11px")
+  .style("fill", "#6B7280")
+  .text("Includes symptom-related and background indicator prevalence across age groups.");
 
   const tooltip = d3.select("#tooltip");
 
