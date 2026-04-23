@@ -13,123 +13,109 @@
       color: #111827;
       line-height: 1.7;
     }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 4px;
-    }
-
-    h2 {
-      font-size: 1.3rem;
-      margin-top: 36px;
-      margin-bottom: 8px;
-      color: #1e3a8a;
-    }
-
-    h3 {
-      font-size: 1.05rem;
-      margin-top: 20px;
-      margin-bottom: 4px;
-      color: #374151;
-    }
-
-    p {
-      margin-bottom: 12px;
-      color: #374151;
-    }
-
-    nav {
-      margin-bottom: 32px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    nav a {
-      margin-right: 24px;
-      text-decoration: none;
-      color: #2563EB;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .ref {
-      font-size: 0.9rem;
-      color: #6B7280;
-      margin-bottom: 10px;
-    }
-
-    .ref a {
-      color: #2563EB;
-    }
+    h1 { font-size: 2rem; margin-bottom: 4px; }
+    h2 { font-size: 1.3rem; margin-top: 36px; margin-bottom: 8px; color: #1e3a8a; border-bottom: 1px solid #e5e7eb; padding-bottom: 5px; }
+    h3 { font-size: 1.05rem; margin-top: 20px; margin-bottom: 4px; color: #374151; }
+    p { margin-bottom: 12px; color: #374151; }
+    nav { margin-bottom: 32px; padding-bottom: 12px; border-bottom: 1px solid #e5e7eb; }
+    nav a { margin-right: 24px; text-decoration: none; color: #2563EB; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    .ref { font-size: 0.9rem; color: #6B7280; margin-bottom: 10px; }
+    .ref a { color: #2563EB; }
+    .viz-box { border: 1px solid #e5e7eb; padding: 20px; margin-bottom: 30px; border-radius: 8px; background: #f9fafb; }
+    .instruction { font-style: italic; color: #4b5563; font-size: 0.95rem; }
+    .takeaway-tag { font-weight: bold; color: #1e3a8a; }
+    .category-label { display: inline-block; background: #dbeafe; color: #1e40af; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="index.html">Introduction</a>
-    <a href="visualizations.html">Visualizations</a>
+    <a href="index.html">Introduction & Data</a>
+    <a href="#visualizations">Visualizations</a>
+    <a href="#conclusion">Conclusion</a>
   </nav>
 
   <h1>What Predicts Pulmonary Disease?</h1>
-  <p>DS4200 — Information Presentation and Data Visualization</p>
+  <p><strong>DS4200: Information Presentation and Data Visualization</strong></p>
 
   <h2>Introduction</h2>
-
-  <h3>Topic Statement</h3>
   <p>Our project examines how health indicators, lifestyle-related factors, and symptoms relate to pulmonary disease risk. Using a synthetic lung cancer risk dataset from Kaggle, we aim to visualize which factors stand out most clearly and how they help describe patterns of risk.</p>
 
-  <h3>Why It Matters</h3>
-  <p>This topic is important because lung cancer and related pulmonary conditions are high-impact health concerns, and understanding risk-related patterns can help make a complicated and sensitive topic more approachable. Visualization is especially useful here because it allows us to compare multiple possible indicators at once and show which ones appear most meaningful within the dataset.</p>
-
-  <h3>About the Dataset</h3>
-  <p>The dataset is well-suited for this project because it contains 5,000 records and 18 features related to lung cancer risk and prediction, providing enough observations and enough variable variety to build a meaningful narrative. Since the dataset includes demographic information and risk-related health indicators, it supports our goal of comparing which factors appear most associated with pulmonary disease outcomes.</p>
-
-  <h3>Central Question</h3>
-  <p>Our main question is which indicators in this dataset appear most strongly related to pulmonary disease, and how they compare when viewed together rather than one at a time. More specifically, we want to identify which factors are most important overall, whether certain symptoms or lifestyle indicators stand out relative to demographic factors, and what a higher-risk profile looks like across multiple variables.</p>
-
-  <h3>Visual Narrative</h3>
-  <p>The webpage is designed to move from broad comparisons to more detailed views of how risk-related variables behave together. We begin by highlighting which indicators appear most important overall, then use additional visualizations to examine relationships, compare outcomes, and show what higher-risk cases look like in an interactive way.</p>
-
-  <h3>Limitations</h3>
-  <p>Because this is a prediction-oriented dataset rather than direct clinical evidence, our findings should be understood as patterns within the data rather than medical proof. The goal of the project is to communicate these patterns clearly and thoughtfully, while recognizing the limits of what this type of dataset can support.</p>
-
   <h2>Data Overview</h2>
+  <p>We used the "Lung Cancer Prediction Dataset" from Kaggle, featuring <strong>5,000 patient-level records</strong> and <strong>18 attributes</strong>[cite: 7, 25, 26]. The final cleaned version contains 5,000 usable observations with a mix of categorical (Smoking, Family History, Symptoms) and continuous (Age, Oxygen Saturation) variables[cite: 27, 30].</p>
 
-  <h3>Source and Scale</h3>
-  <p>We used the "Lung Cancer Prediction Dataset" from Kaggle, which contains 5,000 patient-level records and 18 features. For our project workflow, the dataset was cleaned and prepared for analysis, and the final version contains 5,000 usable observations with no missing values or duplicate rows.</p>
+  <h2 id="visualizations">Visualizations</h2>
 
-  <h3>Types of Variables</h3>
-  <p>The dataset contains a mix of continuous and binary variables, which makes it well suited for visualization. Continuous variables include age, energy level, and oxygen saturation, while binary features include smoking, exposure to pollution, breathing issues, chest tightness, family history, and other symptom or lifestyle-related indicators.</p>
+  <div class="viz-box">
+    <span class="category-label">Category: Risk Factors</span>
+    <h3>Visualization 1 — Indicators Most Associated with Pulmonary Disease</h3>
+    <p class="instruction">
+      <strong>How to interact:</strong> Hover over any bar to highlight it and see exact correlation values.<br>
+      <strong>What to look for:</strong> Observe how Smoking and Family History significantly outweigh demographic variables like Age.
+    </p>
+    <p><span class="takeaway-tag">Takeaway:</span> Smoking stands out as the strongest relationship in the dataset, while demographic factors show very weak relationships, suggesting lifestyle is a more informative predictor here.</p>
+  </div>
 
-  <h3>Outcome / Target</h3>
-  <p>The main outcome in this dataset is pulmonary disease, which is recorded as a yes/no variable and was converted into a binary numeric field for analysis. This allows us to compare which risk-related features appear most associated with disease outcomes and visualize those patterns across the dataset.</p>
+  <div class="viz-box">
+    <span class="category-label">Category: Risk Factors</span>
+    <h3>Visualization 2 — Disease Outcomes by Top Risk Factors</h3>
+    <p class="instruction">
+      <strong>How to interact:</strong> Use the dropdown menu to filter by specific factors (Smoking, Family History).<br>
+      <strong>What to look for:</strong> Compare the "Yes" vs "No" bars to see the dramatic spike in disease rates for smokers.
+    </p>
+    <p><span class="takeaway-tag">Takeaway:</span> Patients with high-risk lifestyle factors show over 5x higher disease rates than those without, confirming these factors as meaningful primary predictors.</p>
+  </div>
 
-  <h3>Summary</h3>
-  <p>The dataset fits our project well because it includes enough observations to support meaningful comparisons and enough variables to study multiple dimensions of risk at once. It allows us to compare demographic, lifestyle, and symptom-related indicators within a single narrative. This is central to our goal of identifying what factors stand out most in relation to pulmonary disease risk.</p>
+  <div class="viz-box">
+    <span class="category-label">Category: Symptoms & Indicators</span>
+    <h3>Visualization 3 — Symptom Prevalence Among Disease-Positive Patients</h3>
+    <p class="instruction">
+      <strong>How to interact:</strong> Hover over any heatmap cell to see specific symptom prevalence rates.<br>
+      <strong>What to look for:</strong> Notice the consistent high prevalence of breathing issues across all age groups.
+    </p>
+    <p><span class="takeaway-tag">Takeaway:</span> Symptom profiles are remarkably consistent across age groups, reinforcing that physical indicators like breathing issues are universal "red flags" regardless of patient age.</p>
+  </div>
+
+  <div class="viz-box">
+    <span class="category-label">Category: Symptoms & Indicators</span>
+    <h3>Visualization 4 — Age vs Oxygen Saturation by Disease Status</h3>
+    <p class="instruction">
+      <strong>How to interact:</strong> Use the dropdown to filter by smoking status. Hover over points for patient details.<br>
+      <strong>What to look for:</strong> Look for the cluster of disease-positive points at lower Oxygen Saturation levels (typically below 92%).
+    </p>
+    <p><span class="takeaway-tag">Takeaway:</span> Disease-positive patients cluster at lower oxygen saturation levels, suggesting this physiological metric is a stronger clinical indicator than age alone.</p>
+  </div>
+
+  <div class="viz-box">
+    <span class="category-label">Category: Broader Patient Profiles</span>
+    <h3>Visualization 5 — Risk Factor Profile: Disease vs. No Disease</h3>
+    <p class="instruction">
+      <strong>How to interact:</strong> Hover over dots on the radar chart to see specific factor prevalence in each group.<br>
+      <strong>What to look for:</strong> Compare the "shape" of the polygons; the disease-positive group creates a much larger area across all symptom axes.
+    </p>
+    <p><span class="takeaway-tag">Takeaway:</span> This holistic view shows that disease-positive patients possess a distinct "profile" dominated by a cluster of symptoms (smoking, breathing issues, throat discomfort) compared to healthy patients.</p>
+  </div>
+
+  <h2 id="conclusion">Conclusion</h2>
+  <div style="background: #eff6ff; padding: 20px; border-radius: 8px;">
+    <h3>Key Takeaways</h3>
+    <ul>
+      <li><strong>Lifestyle is Paramount:</strong> Smoking is the single most dominant predictor of pulmonary disease in this dataset, far exceeding the influence of demographics[cite: 131, 138].</li>
+      <li><strong>Universal Symptom Markers:</strong> Breathing issues and throat discomfort are consistent indicators across all age groups, serving as reliable clinical markers for risk[cite: 138].</li>
+      <li><strong>Physiological Indicators:</strong> Measurable signals like lower oxygen saturation provide a clearer threshold for disease presence than broad patient demographics[cite: 111].</li>
+    </ul>
+    <h3>Limitations & Future Work</h3>
+    <p>A primary limitation is the use of a synthetic dataset; future work should validate these interactive models against real clinical data and incorporate environmental factors like long-term pollution exposure[cite: 100, 134].</p>
+  </div>
 
   <h2>References</h2>
-
   <div class="ref">
-    Markaki, M., Tsamardinos, I., Langhammer, A., Lagani, V., Hveem, K., &amp; Røe, O. D. (2018).
-    A Validated Clinical Risk Prediction Model for Lung Cancer in Smokers of All Ages and Exposure Types: A HUNT Study.
-    <em>EBioMedicine, 31</em>, 36–46.
-    <a href="https://doi.org/10.1016/j.ebiom.2018.03.027" target="_blank">https://doi.org/10.1016/j.ebiom.2018.03.027</a>
+    Markaki, M., et al. (2018). A Validated Clinical Risk Prediction Model for Lung Cancer. <em>EBioMedicine</em>. <a href="https://doi.org/10.1016/j.ebiom.2018.03.027" target="_blank">DOI Link</a>
   </div>
-
   <div class="ref">
-    Cao, W., You, Z., Wang, Z., Liang, Z., Li, H., Chang, Z., Chen, Y., Dong, G., Cheng, Z. J., &amp; Sun, B. (2025).
-    Risk factors behind the global lung cancer burden: a pan-database exploration.
-    <em>Translational Lung Cancer Research, 14</em>(7), 2452–2469.
-    <a href="https://doi.org/10.21037/tlcr-2025-131" target="_blank">https://doi.org/10.21037/tlcr-2025-131</a>
+    Cao, W., et al. (2025). Risk factors behind the global lung cancer burden. <em>Translational Lung Cancer Research</em>. <a href="https://doi.org/10.21037/tlcr-2025-131" target="_blank">DOI Link</a>
   </div>
-
-  <p>
-    These two sources help ground our project in broader research on lung cancer prediction. The HUNT study focuses on clinical risk prediction in smokers and supports the idea that multiple individual-level factors can be combined to better understand disease risk, which connects directly to our project’s goal of comparing symptoms and lifestyle indicators. The pan-database exploration paper provides a broader public-health perspective by examining major contributors to the global lung cancer burden, which helps frame the importance of our analysis and why it focuses on identifying the risk-related features that stand out most clearly in the dataset. Together, these sources connect our visualizations to broader patient-level risk modeling and the context of lung cancer risk factors. 
-
-  </p>
 
 </body>
 </html>
