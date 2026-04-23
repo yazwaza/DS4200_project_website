@@ -3,118 +3,188 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pulmonary Disease Risk Factors</title>
+  <title>Visualizations — Pulmonary Disease Risk Factors</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 860px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 40px 24px;
       color: #111827;
       line-height: 1.7;
     }
-    h1 { font-size: 2rem; margin-bottom: 4px; }
-    h2 { font-size: 1.3rem; margin-top: 36px; margin-bottom: 8px; color: #1e3a8a; border-bottom: 1px solid #e5e7eb; padding-bottom: 5px; }
-    h3 { font-size: 1.05rem; margin-top: 20px; margin-bottom: 4px; color: #374151; }
-    p { margin-bottom: 12px; color: #374151; }
-    nav { margin-bottom: 32px; padding-bottom: 12px; border-bottom: 1px solid #e5e7eb; }
-    nav a { margin-right: 24px; text-decoration: none; color: #2563EB; font-weight: bold; }
-    nav a:hover { text-decoration: underline; }
-    .ref { font-size: 0.9rem; color: #6B7280; margin-bottom: 10px; }
-    .ref a { color: #2563EB; }
-    .viz-box { border: 1px solid #e5e7eb; padding: 20px; margin-bottom: 30px; border-radius: 8px; background: #f9fafb; }
-    .instruction { font-style: italic; color: #4b5563; font-size: 0.95rem; }
-    .takeaway-tag { font-weight: bold; color: #1e3a8a; }
-    .category-label { display: inline-block; background: #dbeafe; color: #1e40af; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; }
+
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    nav a {
+      margin-right: 24px;
+      text-decoration: none;
+      color: #2563EB;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      color: #1e3a8a;
+      margin-top: 48px;
+      margin-bottom: 4px;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 6px;
+    }
+
+    h3 {
+      font-size: 1rem;
+      color: #374151;
+      margin-top: 16px;
+      margin-bottom: 4px;
+    }
+
+    p {
+      color: #374151;
+      margin-bottom: 12px;
+    }
+
+    .viz-container {
+      margin: 20px 0;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .viz-container iframe {
+      width: 100%;
+      border: none;
+      display: block;
+    }
+
+    .interaction-note {
+      background: #EFF6FF;
+      border-left: 3px solid #2563EB;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      color: #374151;
+      margin: 12px 0;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .findings {
+      background: #F9FAFB;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 24px;
+      margin-top: 48px;
+    }
+
+    .findings h2 {
+      border-bottom: none;
+      margin-top: 0;
+    }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="index.html">Introduction & Data</a>
-    <a href="#visualizations">Visualizations</a>
-    <a href="#conclusion">Conclusion</a>
+    <a href="index.html">Introduction</a>
+    <a href="visualizations.html">Visualizations</a>
   </nav>
 
-  <h1>What Predicts Pulmonary Disease?</h1>
-  <p><strong>DS4200: Information Presentation and Data Visualization</strong></p>
+  <h1>Visualizations</h1>
+  <p>The five visualizations below are designed to move from a broad overview of risk factor patterns down to specific patient-level comparisons. Each chart builds on the previous one to tell a connected story about which factors are most associated with pulmonary disease in this dataset.</p>
 
-  <h2>Introduction</h2>
-  <p>Our project examines how health indicators, lifestyle-related factors, and symptoms relate to pulmonary disease risk. Using a synthetic lung cancer risk dataset from Kaggle, we aim to visualize which factors stand out most clearly and how they help describe patterns of risk.</p>
+  <!-- ── VIZ 1 ── -->
+  <h2>Visualization 1 — Indicators Most Associated with Pulmonary Disease</h2>
 
-  <h2>Data Overview</h2>
-  <p>We used the "Lung Cancer Prediction Dataset" from Kaggle, featuring <strong>5,000 patient-level records</strong> and <strong>18 attributes</strong>[cite: 7, 25, 26]. The final cleaned version contains 5,000 usable observations with a mix of categorical (Smoking, Family History, Symptoms) and continuous (Age, Oxygen Saturation) variables[cite: 27, 30].</p>
-
-  <h2 id="visualizations">Visualizations</h2>
-
-  <div class="viz-box">
-    <span class="category-label">Category: Risk Factors</span>
-    <h3>Visualization 1 — Indicators Most Associated with Pulmonary Disease</h3>
-    <p class="instruction">
-      <strong>How to interact:</strong> Hover over any bar to highlight it and see exact correlation values.<br>
-      <strong>What to look for:</strong> Observe how Smoking and Family History significantly outweigh demographic variables like Age.
-    </p>
-    <p><span class="takeaway-tag">Takeaway:</span> Smoking stands out as the strongest relationship in the dataset, while demographic factors show very weak relationships, suggesting lifestyle is a more informative predictor here.</p>
+  <div class="viz-container">
+    <iframe src="top_indicators_chart" width = "1000" height="600" scrolling="no"></iframe>
   </div>
 
-  <div class="viz-box">
-    <span class="category-label">Category: Risk Factors</span>
-    <h3>Visualization 2 — Disease Outcomes by Top Risk Factors</h3>
-    <p class="instruction">
-      <strong>How to interact:</strong> Use the dropdown menu to filter by specific factors (Smoking, Family History).<br>
-      <strong>What to look for:</strong> Compare the "Yes" vs "No" bars to see the dramatic spike in disease rates for smokers.
-    </p>
-    <p><span class="takeaway-tag">Takeaway:</span> Patients with high-risk lifestyle factors show over 5x higher disease rates than those without, confirming these factors as meaningful primary predictors.</p>
+  <div class="interaction-note">
+    <strong>How to interact:</strong> Hover over any bar to highlight it and see the indicator name, type, and exact correlation value. Unselected bars fade to make the comparison easier to read.
   </div>
 
-  <div class="viz-box">
-    <span class="category-label">Category: Symptoms & Indicators</span>
-    <h3>Visualization 3 — Symptom Prevalence Among Disease-Positive Patients</h3>
-    <p class="instruction">
-      <strong>How to interact:</strong> Hover over any heatmap cell to see specific symptom prevalence rates.<br>
-      <strong>What to look for:</strong> Notice the consistent high prevalence of breathing issues across all age groups.
-    </p>
-    <p><span class="takeaway-tag">Takeaway:</span> Symptom profiles are remarkably consistent across age groups, reinforcing that physical indicators like breathing issues are universal "red flags" regardless of patient age.</p>
+  <h3>Takeaway</h3>
+  <p>This chart shows which indicators are most strongly associated with pulmonary disease in the dataset. Smoking stands out as the strongest relationship, followed by smoking family history and symptom-related variables such as throat discomfort and breathing issues. In contrast, age and gender show very weak relationships in this dataset, suggesting that lifestyle and symptom indicators are more informative than demographic variables in our current analysis.</p>
+
+  <!-- ── VIZ 2 ── -->
+  <h2>Visualization 2 — Disease Outcomes by Top Risk Factors</h2>
+
+  <div class="viz-container">
+    <iframe src="viz_stacked_bar.html" height="500" scrolling="no"></iframe>
   </div>
 
-  <div class="viz-box">
-    <span class="category-label">Category: Symptoms & Indicators</span>
-    <h3>Visualization 4 — Age vs Oxygen Saturation by Disease Status</h3>
-    <p class="instruction">
-      <strong>How to interact:</strong> Use the dropdown to filter by smoking status. Hover over points for patient details.<br>
-      <strong>What to look for:</strong> Look for the cluster of disease-positive points at lower Oxygen Saturation levels (typically below 92%).
-    </p>
-    <p><span class="takeaway-tag">Takeaway:</span> Disease-positive patients cluster at lower oxygen saturation levels, suggesting this physiological metric is a stronger clinical indicator than age alone.</p>
+  <div class="interaction-note">
+    <strong>How to interact:</strong> Use the dropdown menu to filter by a specific factor. Hover over any bar to see the exact proportion, raw count, and total group size. "Yes" and "No" indicate whether the patient has that risk factor.
   </div>
 
-  <div class="viz-box">
-    <span class="category-label">Category: Broader Patient Profiles</span>
-    <h3>Visualization 5 — Risk Factor Profile: Disease vs. No Disease</h3>
-    <p class="instruction">
-      <strong>How to interact:</strong> Hover over dots on the radar chart to see specific factor prevalence in each group.<br>
-      <strong>What to look for:</strong> Compare the "shape" of the polygons; the disease-positive group creates a much larger area across all symptom axes.
-    </p>
-    <p><span class="takeaway-tag">Takeaway:</span> This holistic view shows that disease-positive patients possess a distinct "profile" dominated by a cluster of symptoms (smoking, breathing issues, throat discomfort) compared to healthy patients.</p>
+  <h3>Takeaway</h3>
+  <p>This stacked bar chart compares the proportion of patients with and without pulmonary disease across the three strongest risk factors: smoking, family history, and throat discomfort. In all three cases the patients with the risk factor show a noticeably higher disease rate than those who do not. Smoking shows the most dramatic difference, with over half of smokers having pulmonary disease compared to under 10% of non-smokers. This confirms that lifestyle and symptom-related factors are meaningful predictors of disease outcome in this dataset.</p>
+
+  <!-- ── VIZ 3 ── -->
+  <h2>Visualization 3 — Symptom Prevalence Among Disease-Positive Patients</h2>
+
+  <div class="viz-container">
+    <iframe src="viz_heatmap.html" height="480" scrolling="no"></iframe>
   </div>
 
-  <h2 id="conclusion">Conclusion</h2>
-  <div style="background: #eff6ff; padding: 20px; border-radius: 8px;">
-    <h3>Key Takeaways</h3>
-    <ul>
-      <li><strong>Lifestyle is Paramount:</strong> Smoking is the single most dominant predictor of pulmonary disease in this dataset, far exceeding the influence of demographics[cite: 131, 138].</li>
-      <li><strong>Universal Symptom Markers:</strong> Breathing issues and throat discomfort are consistent indicators across all age groups, serving as reliable clinical markers for risk[cite: 138].</li>
-      <li><strong>Physiological Indicators:</strong> Measurable signals like lower oxygen saturation provide a clearer threshold for disease presence than broad patient demographics[cite: 111].</li>
-    </ul>
-    <h3>Limitations & Future Work</h3>
-    <p>A primary limitation is the use of a synthetic dataset; future work should validate these interactive models against real clinical data and incorporate environmental factors like long-term pollution exposure[cite: 100, 134].</p>
+  <div class="interaction-note">
+    <strong>How to interact:</strong> Hover over any cell to see the symptom name, age group, prevalence rate, and raw patient counts.
   </div>
 
-  <h2>References</h2>
-  <div class="ref">
-    Markaki, M., et al. (2018). A Validated Clinical Risk Prediction Model for Lung Cancer. <em>EBioMedicine</em>. <a href="https://doi.org/10.1016/j.ebiom.2018.03.027" target="_blank">DOI Link</a>
+  <h3>Takeaway</h3>
+  <p>This heatmap shows the prevalence of each risk factor among disease-positive patients only, broken down by age group. Smoking and breathing issues are consistently the most prevalent symptoms across all age groups, appearing in over 90% of disease-positive patients regardless of age. Family history and stress-related factors show lower prevalence overall. The chart reveals that symptom profiles are fairly consistent across age groups, reinforcing the finding that lifestyle factors rather than age are the stronger predictors in this dataset.</p>
+
+  <!-- ── VIZ 4 ── -->
+  <h2>Visualization 4 — Age vs Oxygen Saturation by Disease Status</h2>
+
+  <div class="viz-container">
+    <iframe src="viz_scatter.html" height="500" scrolling="no"></iframe>
   </div>
-  <div class="ref">
-    Cao, W., et al. (2025). Risk factors behind the global lung cancer burden. <em>Translational Lung Cancer Research</em>. <a href="https://doi.org/10.21037/tlcr-2025-131" target="_blank">DOI Link</a>
+
+  <div class="interaction-note">
+    <strong>How to interact:</strong> Use the dropdown to filter by smoking status. Hover over any point to see the patient's age, oxygen saturation, disease status, and smoking status.
+  </div>
+
+  <h3>Takeaway</h3>
+  <p>This scatter plot shows the relationship between age and oxygen saturation for individual patients, colored by disease status. Disease-positive patients tend to cluster at slightly lower oxygen saturation levels compared to disease-negative patients, regardless of age. This suggests that oxygen saturation is a meaningful physiological signal associated with pulmonary disease in this dataset. The dropdown filter allows the viewer to isolate smokers or non-smokers to see whether the pattern holds within each group.</p>
+
+  <!-- ── VIZ 5 ── -->
+  <h2>Visualization 5 — Risk Factor Profile: Disease vs. No Disease</h2>
+
+  <div class="viz-container">
+    <iframe src="viz_radar.html" height="560" scrolling="no"></iframe>
+  </div>
+
+  <div class="interaction-note">
+    <strong>How to interact:</strong> Hover over any dot on the radar chart to see the exact factor name, group, and prevalence rate.
+  </div>
+
+  <h3>Takeaway</h3>
+  <p>This radar chart provides a broad overview of how the overall risk factor profile differs between disease-positive and disease-negative patients across all nine factors simultaneously. The red polygon representing disease-positive patients is consistently larger than the blue polygon, particularly for smoking, breathing issues, and throat discomfort. Family history and stress-related factors show smaller differences between the two groups. This side-by-side shape comparison makes it easy to see at a glance which factors separate the two groups the most and which ones are more similar.</p>
+
+  <!-- ── CONCLUSION ── -->
+  <div class="findings">
+    <h2>Conclusion</h2>
+
+    <p>Our analysis suggests that smoking is the strongest indicator associated with pulmonary disease in this dataset, with smoking family history and several symptom-related variables also standing out. Lifestyle and symptom indicators appear to be more informative than demographic variables such as age and gender, which show much weaker relationships in the current analysis.</p>
+
+    <p>The heatmap further confirms this by showing that symptom profiles among disease-positive patients remain fairly consistent across age groups, reinforcing that age alone is not a strong differentiator. The scatter plot adds a physiological dimension, showing that disease-positive patients tend toward slightly lower oxygen saturation levels regardless of age, suggesting that measurable health signals may be more useful than demographic factors for identifying at-risk patients.</p>
+
+    <p>The radar chart ties these findings together by showing the full risk factor profile side by side — the shape difference between disease-positive and disease-negative patients is driven primarily by smoking, breathing issues, and throat discomfort, while factors like family history and stress show smaller but still visible gaps between the two groups.</p>
+
+    <p>Taken together, these visualizations show that pulmonary disease risk in this dataset is best understood through a combination of lifestyle behaviors and physical symptoms rather than demographics. Future work could explore building a predictive model using these factors or validating these patterns against real clinical data. Because this dataset is synthetic, all findings should be interpreted as patterns within the data rather than medical proof.</p>
   </div>
 
 </body>
