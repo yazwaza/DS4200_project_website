@@ -30,6 +30,8 @@ The visualizations were designed to move from broad overview to more detailed co
 4. a scatter plot comparing age and oxygen saturation by disease status
 5. a radar chart comparing broader patient profiles between disease-positive and disease-negative groups
 
+We also revised several labels, chart framings, and the scatter plot trend display based on instructor feedback so the final site more clearly separates risk factors from symptoms and indicators.
+
 We used different chart types on purpose so the figures would not feel repetitive and so each figure could support a different task. Bar charts support ranking and comparison, the heatmap supports structured prevalence comparison, the scatter plot supports relationship analysis, and the radar chart gives a broader profile view. We also revised several labels and framing choices to better separate risk factors from symptoms and to make the site more consistent overall.
 
 ## Interaction notes

@@ -1,0 +1,35 @@
+DS4200 Project Design Notes
+
+Project website link:
+https://yazwaza.github.io/DS4200_project_website/index.html
+
+Overall visual design:
+The visualizations were designed to move from broad overview to more detailed comparison. The project begins with an overview of which indicators are most strongly associated with pulmonary disease, then moves into comparisons of disease outcomes across selected risk factors, prevalence patterns across age groups, a patient-level physiological comparison, and finally a broader patient profile comparison. This ordering was meant to create a connected visual narrative rather than five independent figures.
+
+Visualization 1:
+The first chart uses a ranked bar chart to show which indicators are most associated with pulmonary disease. A bar chart was used because it is the clearest way to compare the strength of multiple indicators side by side.
+
+Visualization 2:
+The second chart uses a stacked bar chart to compare disease outcomes across selected risk factors. This design makes it easier to compare within-group proportions and show how disease rates differ between patients with and without the selected factor.
+
+Visualization 3:
+The third chart uses a heatmap to compare indicator prevalence across age groups among disease-positive patients. This format makes structured comparisons easier across both variables at the same time and highlights which indicators remain consistently common.
+
+Visualization 4:
+The fourth chart uses a scatter plot to compare age and oxygen saturation by disease status. This allows patient-level overlap and separation to be shown directly, while the smooth trend lines help summarize overall group patterns.
+
+Visualization 5:
+The fifth chart uses a radar chart to compare broader patient profiles between disease-positive and disease-negative groups. This chart was used to provide a summary view of multiple symptom and indicator dimensions at once.
+
+Tools used:
+top_indicators_chart.html, viz_stacked_bar.html, and viz_scatter.html were generated using Altair / Vega-Lite style outputs.
+viz_heatmap.html and viz_radar.html were built using D3.
+
+Interaction choices:
+The project includes hover tooltips, hover highlighting, and dropdown filtering. These interactions were included to make the charts easier to explore without overcrowding the page.
+
+Revisions made from instructor feedback:
+Several revisions were made after feedback to improve clarity and consistency. These included separating risk-factor language from symptom/indicator language, changing Family History to Disease Family History where appropriate, adding a smooth trend line to the scatter plot, and reframing the radar chart as a broader patient profile comparison rather than only a risk factor comparison.
+
+Limitations:
+This dataset is synthetic, so the findings should be interpreted as patterns in the data rather than medical proof.
